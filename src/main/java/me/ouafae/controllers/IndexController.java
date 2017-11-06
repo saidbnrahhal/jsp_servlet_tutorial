@@ -46,12 +46,7 @@ public class IndexController extends HttpServlet {
 		 * request.getParameter()
 		 * pour lire des donnes man requet
 		 */
-		String name= (String) request.getParameter("name") ;
 		
-		String surname= (String) request.getParameter("surname") ;
-		
-		String message ="hello word " + name +" " +surname;
-		request.setAttribute("helloMessage", message);
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/index.jsp");
 		dispatcher.forward(request, response);
 	}
@@ -62,6 +57,20 @@ public class IndexController extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		String firstNumberString = (String) request.getParameter("firstNumber");
+		Long firstNumber= Long.parseLong(firstNumberString) ;
+		
+		String secondNumberString = (String) request.getParameter("secondNumber");
+		Long secondNumber= Long.parseLong(secondNumberString) ;
+		
+		Long result= firstNumber +secondNumber ;
+		
+		request.setAttribute("secondNumber", secondNumber);
+		request.setAttribute("firstNumber", firstNumber);
+		request.setAttribute("result", result);
+		
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/index.jsp");
+		dispatcher.forward(request, response);
 	}
 
 }

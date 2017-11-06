@@ -7,6 +7,16 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>${helloMessage}</h1>
+	
+	<form action="index" method="post">
+		first number : <input type="text" name="firstNumber"> <br />
+		second number : <input type="text" name="secondNumber"> <br />
+		<input type="submit"  value="valider"> 
+	</form>
+
+	<h2>${firstNumber}</h2>
+	<h2>${secondNumber}</h2>
+	<h1>${result}</h1>
+	 
 </body>
 </html>
